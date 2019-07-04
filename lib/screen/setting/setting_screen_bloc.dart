@@ -1,0 +1,26 @@
+import 'package:bloc/bloc.dart';
+import 'package:bloc_sample/screen/setting/setting_screen.dart';
+
+class SettingScreenBloc extends Bloc<SettingScreenEvent, SettingScreenState> {
+  @override
+  String toString() => 'SettingScreen';
+
+  @override
+  SettingScreenState get initialState => Uninitialized();
+
+  @override
+  Stream<SettingScreenState> mapEventToState(
+    SettingScreenEvent event,
+  ) async* {
+    if (event is OnRequestInitializing) {
+      yield Initializing();
+
+      // initialize process here
+      await Future.delayed(const Duration(seconds: 3));
+
+      yield Initialized();
+    } else if (event is OnCompleteRendering) {
+      yield Idling();
+    }
+  }
+}

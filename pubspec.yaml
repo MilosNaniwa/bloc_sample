@@ -10,7 +10,7 @@ description: A new Flutter application.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0-dev.9.4.flutter-f9ebf21297 <3.0.0"
+  sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -21,15 +21,15 @@ dependencies:
   cupertino_icons: ^0.1.2
 
   # bloc
-  bloc: ^0.9.3
-  flutter_bloc: ^0.6.3
+  bloc: ^0.14.4
+  flutter_bloc: ^0.18.3
 
   # equatable
-  equatable: ^0.1.9
+  equatable: ^0.2.6
 
   # test
   test: any
-  mockito: ^4.0.0
+  mockito: ^4.1.0
 
 dev_dependencies:
   flutter_test:
