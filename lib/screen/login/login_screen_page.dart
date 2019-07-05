@@ -34,7 +34,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
     );
 
     _bloc.dispatch(
-      OnRequestInitializing(),
+      OnRequestInitializingEvent(),
     );
   }
 
@@ -49,11 +49,11 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
     return BlocListener(
       bloc: _bloc,
       listener: (context, state) {
-        if (state is Initialized) {
+        if (state is InitializedState) {
           _bloc.dispatch(
-            OnCompleteRendering(),
+            OnCompleteRenderingEvent(),
           );
-        } else if (state is Authenticating) {
+        } else if (state is AuthenticatingState) {
           showDialog(
               context: context,
               builder: (context) => Scaffold(
@@ -67,17 +67,17 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                       ),
                     ),
                   ));
-        } else if (state is AuthenticationSucceeded) {
+        } else if (state is AuthenticationSucceededState) {
           _bloc.dispatch(
-            OnRequestNavigatingToContentScreen(),
+            OnRequestNavigatingToContentScreenEvent(),
           );
-        } else if (state is AuthenticationFailed) {
+        } else if (state is AuthenticationFailedState) {
           isAuthenticationFailed = true;
           Navigator.of(context).pop();
           _bloc.dispatch(
-            OnCompleteRendering(),
+            OnCompleteRenderingEvent(),
           );
-        } else if (state is ToContentScreenNavigating) {
+        } else if (state is ToContentScreenNavigatingState) {
           Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
               builder: (context) => Navigation(),
@@ -95,7 +95,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
               RaisedButton(
                 child: Text("Login"),
                 onPressed: () => _bloc.dispatch(
-                      OnRequestAuthenticating(
+                      OnRequestAuthenticatingEvent(
                         loginModel: LoginModel(
                           userId: 'hoge',
                           password: 'fuga',

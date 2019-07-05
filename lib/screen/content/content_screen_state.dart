@@ -4,22 +4,22 @@ abstract class ContentScreenState extends Equatable {
   ContentScreenState([List props = const []]) : super(props);
 }
 
-class Uninitialized extends ContentScreenState {
+class UninitializedState extends ContentScreenState {
   @override
   String toString() => 'Uninitialized';
 }
 
-class Initializing extends ContentScreenState {
+class InitializingState extends ContentScreenState {
   @override
   String toString() => 'Initializing';
 }
 
-class Initialized extends ContentScreenState {
+class InitializedState extends ContentScreenState {
   @override
   String toString() => 'Initialized';
 }
 
-class Idling extends ContentScreenState {
+class IdlingState extends ContentScreenState {
   @override
   String toString() => 'Idling';
 }

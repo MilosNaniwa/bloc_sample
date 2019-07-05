@@ -6,21 +6,21 @@ class SplashScreenBloc extends Bloc<SplashScreenEvent, SplashScreenState> {
   String toString() => 'SplashScreen';
 
   @override
-  SplashScreenState get initialState => Uninitialized();
+  SplashScreenState get initialState => UninitializedState();
 
   @override
   Stream<SplashScreenState> mapEventToState(
     SplashScreenEvent event,
   ) async* {
-    if (event is OnRequestInitializing) {
-      yield Initializing();
+    if (event is OnRequestInitializingEvent) {
+      yield InitializingState();
 
       // initialize process here
       await Future.delayed(const Duration(seconds: 3));
 
-      yield Initialized();
-    } else if (event is OnRequestNavigatingToLoginScreen) {
-      yield ToLoginScreenNavigating();
+      yield InitializedState();
+    } else if (event is OnRequestNavigatingToLoginScreenEvent) {
+      yield ToLoginScreenNavigatingState();
     }
   }
 }

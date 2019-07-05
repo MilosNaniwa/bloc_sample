@@ -4,12 +4,12 @@ abstract class SplashScreenEvent extends Equatable {
   SplashScreenEvent([List props = const []]) : super(props);
 }
 
-class OnRequestInitializing extends SplashScreenEvent {
+class OnRequestInitializingEvent extends SplashScreenEvent {
   @override
   String toString() => 'OnRequestInitializing';
 }
 
-class OnRequestNavigatingToLoginScreen extends SplashScreenEvent {
+class OnRequestNavigatingToLoginScreenEvent extends SplashScreenEvent {
   @override
   String toString() => 'OnRequestNavigatingToLoginScreen';
 }

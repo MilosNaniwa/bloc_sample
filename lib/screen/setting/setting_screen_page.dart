@@ -19,7 +19,7 @@ class _SettingScreenPageState extends State<SettingScreenPage>
     super.initState();
     _bloc = SettingScreenBloc();
     _bloc.dispatch(
-      OnRequestInitializing(),
+      OnRequestInitializingEvent(),
     );
   }
 
@@ -35,9 +35,9 @@ class _SettingScreenPageState extends State<SettingScreenPage>
     return BlocListener(
       bloc: _bloc,
       listener: (context, state) {
-        if (state is Initialized) {
+        if (state is InitializedState) {
           _bloc.dispatch(
-            OnCompleteRendering(),
+            OnCompleteRenderingEvent(),
           );
         }
       },

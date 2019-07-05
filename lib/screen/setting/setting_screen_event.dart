@@ -4,12 +4,12 @@ abstract class SettingScreenEvent extends Equatable {
   SettingScreenEvent([List props = const []]) : super(props);
 }
 
-class OnRequestInitializing extends SettingScreenEvent {
+class OnRequestInitializingEvent extends SettingScreenEvent {
   @override
   String toString() => 'OnRequestInitializing';
 }
 
-class OnCompleteRendering extends SettingScreenEvent {
+class OnCompleteRenderingEvent extends SettingScreenEvent {
   @override
   String toString() => 'OnCompleteRendering';
 }

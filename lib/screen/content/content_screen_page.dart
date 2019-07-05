@@ -19,7 +19,7 @@ class _ContentScreenPageState extends State<ContentScreenPage>
     super.initState();
     _bloc = ContentScreenBloc();
     _bloc.dispatch(
-      OnRequestInitializing(),
+      OnRequestInitializingEvent(),
     );
   }
 
@@ -35,9 +35,9 @@ class _ContentScreenPageState extends State<ContentScreenPage>
     return BlocListener(
       bloc: _bloc,
       listener: (context, state) {
-        if (state is Initialized) {
+        if (state is InitializedState) {
           _bloc.dispatch(
-            OnCompleteRendering(),
+            OnCompleteRenderingEvent(),
           );
         }
       },

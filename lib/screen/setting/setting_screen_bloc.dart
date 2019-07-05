@@ -6,21 +6,21 @@ class SettingScreenBloc extends Bloc<SettingScreenEvent, SettingScreenState> {
   String toString() => 'SettingScreen';
 
   @override
-  SettingScreenState get initialState => Uninitialized();
+  SettingScreenState get initialState => UninitializedState();
 
   @override
   Stream<SettingScreenState> mapEventToState(
     SettingScreenEvent event,
   ) async* {
-    if (event is OnRequestInitializing) {
-      yield Initializing();
+    if (event is OnRequestInitializingEvent) {
+      yield InitializingState();
 
       // initialize process here
       await Future.delayed(const Duration(seconds: 3));
 
-      yield Initialized();
-    } else if (event is OnCompleteRendering) {
-      yield Idling();
+      yield InitializedState();
+    } else if (event is OnCompleteRenderingEvent) {
+      yield IdlingState();
     }
   }
 }

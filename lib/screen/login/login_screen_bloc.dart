@@ -14,32 +14,32 @@ class LoginScreenBloc extends Bloc<LoginScreenEvent, LoginScreenState> {
   });
 
   @override
-  LoginScreenState get initialState => Uninitialized();
+  LoginScreenState get initialState => UninitializedState();
 
   @override
   Stream<LoginScreenState> mapEventToState(
     LoginScreenEvent event,
   ) async* {
-    if (event is OnRequestInitializing) {
-      yield Initializing();
+    if (event is OnRequestInitializingEvent) {
+      yield InitializingState();
 
-      yield Initialized();
-    } else if (event is OnCompleteRendering) {
-      yield Idling();
-    } else if (event is OnRequestAuthenticating) {
-      yield Authenticating();
+      yield InitializedState();
+    } else if (event is OnCompleteRenderingEvent) {
+      yield IdlingState();
+    } else if (event is OnRequestAuthenticatingEvent) {
+      yield AuthenticatingState();
 
       bool result = await authenticationRepository.authenticate(
         loginModel: event.loginModel,
       );
 
       if (result) {
-        yield AuthenticationSucceeded();
+        yield AuthenticationSucceededState();
       } else {
-        yield AuthenticationFailed();
+        yield AuthenticationFailedState();
       }
-    } else if (event is OnRequestNavigatingToContentScreen) {
-      yield ToContentScreenNavigating();
+    } else if (event is OnRequestNavigatingToContentScreenEvent) {
+      yield ToContentScreenNavigatingState();
     }
   }
 }

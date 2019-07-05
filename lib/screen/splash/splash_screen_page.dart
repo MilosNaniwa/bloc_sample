@@ -19,7 +19,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     _message = "";
     _bloc = SplashScreenBloc();
     _bloc.dispatch(
-      OnRequestInitializing(),
+      OnRequestInitializingEvent(),
     );
   }
 
@@ -34,15 +34,15 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     return BlocListener(
       bloc: _bloc,
       listener: (context, state) async {
-        if (state is Initializing) {
+        if (state is InitializingState) {
           _message = "Initializing";
-        } else if (state is Initialized) {
+        } else if (state is InitializedState) {
           _message = "Initialized";
 
           _bloc.dispatch(
-            OnRequestNavigatingToLoginScreen(),
+            OnRequestNavigatingToLoginScreenEvent(),
           );
-        } else if (state is ToLoginScreenNavigating) {
+        } else if (state is ToLoginScreenNavigatingState) {
           Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
               builder: (context) => LoginScreenPage(),

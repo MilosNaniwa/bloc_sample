@@ -4,22 +4,22 @@ abstract class SettingScreenState extends Equatable {
   SettingScreenState([List props = const []]) : super(props);
 }
 
-class Uninitialized extends SettingScreenState {
+class UninitializedState extends SettingScreenState {
   @override
   String toString() => 'Uninitialized';
 }
 
-class Initializing extends SettingScreenState {
+class InitializingState extends SettingScreenState {
   @override
   String toString() => 'Initializing';
 }
 
-class Initialized extends SettingScreenState {
+class InitializedState extends SettingScreenState {
   @override
   String toString() => 'Initialized';
 }
 
-class Idling extends SettingScreenState {
+class IdlingState extends SettingScreenState {
   @override
   String toString() => 'Idling';
 }

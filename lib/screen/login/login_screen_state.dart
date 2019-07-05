@@ -4,42 +4,42 @@ abstract class LoginScreenState extends Equatable {
   LoginScreenState([List props = const []]) : super(props);
 }
 
-class Uninitialized extends LoginScreenState {
+class UninitializedState extends LoginScreenState {
   @override
   String toString() => 'Uninitialized';
 }
 
-class Initializing extends LoginScreenState {
+class InitializingState extends LoginScreenState {
   @override
   String toString() => 'Initializing';
 }
 
-class Initialized extends LoginScreenState {
+class InitializedState extends LoginScreenState {
   @override
   String toString() => 'Initialized';
 }
 
-class Idling extends LoginScreenState {
+class IdlingState extends LoginScreenState {
   @override
   String toString() => 'Idling';
 }
 
-class Authenticating extends LoginScreenState {
+class AuthenticatingState extends LoginScreenState {
   @override
   String toString() => 'Authenticating';
 }
 
-class AuthenticationSucceeded extends LoginScreenState {
+class AuthenticationSucceededState extends LoginScreenState {
   @override
   String toString() => 'AuthenticationSucceeded';
 }
 
-class AuthenticationFailed extends LoginScreenState {
+class AuthenticationFailedState extends LoginScreenState {
   @override
   String toString() => 'AuthenticationFailed';
 }
 
-class ToContentScreenNavigating extends LoginScreenState {
+class ToContentScreenNavigatingState extends LoginScreenState {
   @override
   String toString() => 'ToContentScreenNavigating';
 }

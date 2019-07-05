@@ -6,21 +6,21 @@ class ContentScreenBloc extends Bloc<ContentScreenEvent, ContentScreenState> {
   String toString() => 'ContentScreen';
 
   @override
-  ContentScreenState get initialState => Uninitialized();
+  ContentScreenState get initialState => UninitializedState();
 
   @override
   Stream<ContentScreenState> mapEventToState(
     ContentScreenEvent event,
   ) async* {
-    if (event is OnRequestInitializing) {
-      yield Initializing();
+    if (event is OnRequestInitializingEvent) {
+      yield InitializingState();
 
       // initialize process here
       await Future.delayed(const Duration(seconds: 3));
 
-      yield Initialized();
-    } else if (event is OnCompleteRendering) {
-      yield Idling();
+      yield InitializedState();
+    } else if (event is OnCompleteRenderingEvent) {
+      yield IdlingState();
     }
   }
 }

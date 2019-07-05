@@ -6,20 +6,20 @@ abstract class LoginScreenEvent extends Equatable {
   LoginScreenEvent([List props = const []]) : super(props);
 }
 
-class OnRequestInitializing extends LoginScreenEvent {
+class OnRequestInitializingEvent extends LoginScreenEvent {
   @override
   String toString() => 'OnRequestInitializing';
 }
 
-class OnCompleteRendering extends LoginScreenEvent {
+class OnCompleteRenderingEvent extends LoginScreenEvent {
   @override
   String toString() => 'OnCompleteRendering';
 }
 
-class OnRequestAuthenticating extends LoginScreenEvent {
+class OnRequestAuthenticatingEvent extends LoginScreenEvent {
   final LoginModel loginModel;
 
-  OnRequestAuthenticating({
+  OnRequestAuthenticatingEvent({
     @required this.loginModel,
   }) : super([
           loginModel,
@@ -29,12 +29,12 @@ class OnRequestAuthenticating extends LoginScreenEvent {
   String toString() => 'OnRequestAuthenticating';
 }
 
-class OnCompleteAuthenticating extends LoginScreenEvent {
+class OnCompleteAuthenticatingEvent extends LoginScreenEvent {
   @override
   String toString() => 'OnCompleteAuthenticating';
 }
 
-class OnRequestNavigatingToContentScreen extends LoginScreenEvent {
+class OnRequestNavigatingToContentScreenEvent extends LoginScreenEvent {
   @override
   String toString() => 'OnRequestNavigatingToContentScreen';
 }
